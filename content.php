@@ -8,9 +8,9 @@ if (empty($page)) {
     require 'beranda.php';
 } else {
 
-    $file = "lkp/" . $page . "_" . $aksi . ".php";
+    $file = "views/" . $page . "_" . $aksi . ".php";
     if (file_exists($file)) {
-        require "lkp/" . $page . "_" . $aksi . ".php";
+        require "views/" . $page . "_" . $aksi . ".php";
     } else {
         require 'beranda.php';
     }

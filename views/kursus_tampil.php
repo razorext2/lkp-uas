@@ -6,7 +6,7 @@ if (!isset($_SESSION['idsesi'])) {
 
 <div class="row mb-2">
     <div class="col-auto">
-        <h4> Data Pembayaran </h4>
+        <h4> Data Kursus </h4>
     </div>
     <div class="col-auto">
         <a href="?page=kursus&actions=tambah" class="btn btn-info btn-sm">
