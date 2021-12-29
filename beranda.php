@@ -1,102 +1,69 @@
-<div class="container">
-    <div class="row">
-        <div class ="col-xs-12">
-
-            <div class="alert alert-info">
-                <strong>Selamat Datang di SIA Pengadilan Negeri Kisaran</strong>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <!--colomn kedua-->
-        <div class="col-sm-9 col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Arsip Berkas Perkara</h3>
-                </div>
-                <div class="panel-body">
-                     <table id="dtskripsi" class="table table-bordered table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>No.</th><th width="30%">No. Perkara</th><th>Para Pihak</th><th>Tanggal Masuk</th><th>Ruang Arsip</th><th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!--ambil data dari database, dan tampilkan kedalam tabel-->
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8">
+                            <?php if (isset($_SESSION['username'])) { ?>
+                                <div class="card-header pb-0 text-left bg-transparent">
+                                    <h3 class="font-weight-bolder text-info text-gradient">Welcome back, <?= $_SESSION['nama'] ?></h3>
+                                    <p class="mb-0">Please choose this button below to continue.</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <a href="index_admin.php" class="btn bg-gradient-info w-100 mt-4 mb-0">Dashboard</a>
+                                        <a href="logout.php" class="btn bg-gradient-danger w-100 mt-4 mb-0">Logout</a>
+                                    </div>
+                                </div>
                             <?php
-                            //buat sql untuk tampilan data, gunakan kata kunci select
-                            $sql = "SELECT * FROM arsip";
-                            $query = mysqli_query($koneksi, $sql) or die("SQL Anda Salah");
-                            //Baca hasil query dari databse, gunakan perulangan untuk
-                            //Menampilkan data lebh dari satu. disini akan digunakan
-                            //while dan fungdi mysqli_fecth_array
-                            //Membuat variabel untuk menampilkan nomor urut
-                            $nomor = 0;
-                            //Melakukan perulangan u/menampilkan data
-                            while ($data = mysqli_fetch_array($query)) {
-                                $nomor++; //Penambahan satu untuk nilai var nomor
-                                ?>
-                                <tr>
-                                    <td><?= $nomor ?></td>
-                                    <td><?= $data['no_perkara'] ?></td>
-                                    <td><?= $data['para_pihak'] ?></td>
-                                    <td><?= $data['tgl_masuk'] ?></td>
-                                    <td><?= $data['ruang_arsip'] ?></td>
-                                    <td><?= $data['status'] ?></td>
-                                </tr>
-                                <!--Tutup Perulangan data-->
+                            } else { ?>
+                                <div class="card-header pb-0 text-left bg-transparent">
+                                    <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
+                                    <p class="mb-0">Enter your username and password to sign in</p>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    if (isset($_GET['pesan'])) {
+                                        if ($_GET['pesan'] == "salah") { ?>
+                                            <div class="text-white alert alert-danger alert-dismissible fade show" role="alert">
+                                                <span class="alert-icon"></span>
+                                                <span class="alert-text text-sm">Username atau Password Salah!</span>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                    <?php }
+                                    } ?>
+                                    <form role="form" method="POST" action="proses_login.php">
+                                        <label>Username</label>
+                                        <div class="mb-3">
+                                            <input type="text" name="user" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon">
+                                        </div>
+                                        <label>Password</label>
+                                        <div class="mb-3">
+                                            <input type="password" name="pwd" class="form-control" placeholder="Password" aria-label="Password" id="password" aria-describedby="password-addon">
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="showPassword" onclick="showPW()">
+                                            <label class="form-check-label" for="showPassword">Show Password</label>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" name="login" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                        </div>
+                                    </form>
+                                </div>
                             <?php } ?>
-                        </tbody>
-
-                    </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/curved-images/curved6.jpg')">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!--akhir colomn kedua-->
-        <div class="col-sm-3 col-xs-12">
-            <!--Jika terjadi login error tampilkan pesan ini-->
-            <?php if(isset($_GET['error']) ) {?>
-            <div class="alert alert-danger">Maaf! Login Gagal, Coba Lagi..</div>
-            <?php }?>
-
-            <?php if (isset($_SESSION['username'])) { ?>
-            <div class="alert alert-info">
-                <strong>Welcome <?=$_SESSION['nama']?></strong>
-            </div>
-            <?php
-           } else { ?>
-
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Masuk Ke Sistem</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" action="proses_login.php" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="text" name="user" class="form-control input-sm"
-                                   placeholder="Username" required="" autocomplete="off"/>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="password" name="pwd" class="form-control input-sm"
-                                   placeholder="Password" required="" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button type="submit" name="login" value="login"
-                                        class="btn btn-success btn-block"><span class="fa fa-unlock-alt"></span>
-                                    Login Sistem
-                                </button>
-                            </div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-            <?php } ?>
-    </div>
-</div>
+    </section>
+</main>
