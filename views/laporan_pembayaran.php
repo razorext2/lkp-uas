@@ -3,20 +3,26 @@
         <div class="col-xs-12">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Laporan Peminjaman Arsip</h3>
+                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Laporan Arsip</h3>
                 </div>
                 <div class="panel-body">
                     <table id="dtskripsi" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>No.</th><th width="17%">Nomor Perkara</th><th>Nama Peminjam</th><th>Tanggal Pinjam</th><th>Tanggal Kembali</th><th>Lama Pinjam</th><th>AKSI</th>
+                                <th>No.</th>
+                                <th>Nama Peserta</th>
+                                <th>Jumlah Bayar</th>
+                                <th>Sisa</th>
+                                <th>Tanggal Pembayaran</th>
+                                <th>Aksi</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
                             <!--ambil data dari database, dan tampilkan kedalam tabel-->
                             <?php
                             //buat sql untuk tampilan data, gunakan kata kunci select
-                            $sql = "SELECT * FROM peminjaman";
+                            $sql = "SELECT * FROM catatan_pembayaran";
                             $query = mysqli_query($koneksi, $sql) or die("SQL Anda Salah");
                             //Baca hasil query dari databse, gunakan perulangan untuk
                             //Menampilkan data lebh dari satu. disini akan digunakan
@@ -29,39 +35,42 @@
                                 ?>
                                 <tr>
                                     <td><?= $nomor ?></td>
-									                  <td><?= $data['no_perkara'] ?></td>
-                                    <td><?= $data['peminjam'] ?></td>
-                                    <td><?= $data['tgl_pinjam'] ?></td>
-                                    <td><?= $data['tgl_kembali'] ?></td>
-									                  <td><?= $data['lama_pinjam'] ?> hari</td>
+                                    <td><?= $data['nama_peserta'] ?></td>
+                                    <td><?= $data['jmlh_bayar'] ?></td>
+                                    <td><?php  
+                                        if($data['sisa'] == 0){
+                                            echo "Lunas";
+                                        }
+                                        else{
+                                            echo $data['sisa'];
+                                        }
+                                        
+                                    ?></td>
+                                    <td><?= $data['tanggal']?></td>               
                                     <td>
-                                        <a href="report/peminjaman_satu.php?id=<?= $data['id'] ?>" target="_blank" class="btn btn-info btn-xs">
-                                            <span class="fa fa-print"></span>
+                                        <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
+                                            <span class="fa fa-remove"></span>
                                         </a>
-
-                                    </td>
+                                    </td>               
+                                   
                                 </tr>
                                 <!--Tutup Perulangan data-->
                             <?php } ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="9">
-                                    <a href="report/peminjaman_semua.php" target="_blank" class="btn btn-info btn-sm">
-                                        <span class="fa fa_print"></span> Cetak Semua Data
 
-                                    </a>
-                                    <a href="#cetak_perbulan" class="btn btn-info btn-sm">
+                        </tbody>
+                      <tr>
+                                <td colspan="9">
+                                    <a href="laporan/arsip_semua.php" target="_blank" class="btn btn-info btn-sm">
+                                        <span class="fa fa_print"></span> Cetak Semua Pembayaran</a>
+
+                                   <a href="#cetak_perbulan" class="btn btn-info btn-sm">
                                         <span class="fa fa_print"></span> Cetak Perbulan
 
                                     </a>
-                                    <a href="#cetak_pertahun" class="btn btn-info btn-sm">
-                                        <span class="fa fa_print"></span> Cetak Pertahun
-
-                                    </a>
                                 </td>
+
                             </tr>
-                        </tfoot>
+
                     </table>
                 </div>
             </div>
@@ -74,7 +83,7 @@
     <div>
         <a href="#" title="Close" class="close">X</a>
 
-        <form  target="_blank" action="report/peminjaman_perbulan.php" method="post">
+        <form  target="_blank" action="laporan/arsip_perbulan.php" method="post">
         <h4>Pilih bulan </h4>
         <select name="bulan" class="form-control">
           <option value="12"> Desember </option>
@@ -108,7 +117,7 @@
     <div>
         <a href="#" title="Close" class="close">X</a>
 
-        <form  target="_blank" action="report/peminjaman_pertahun.php" method="post">
+        <form  target="_blank" action="report/arsip_pertahun.php" method="post">
         <h4>Pilih tahun</h4>
         <select name="tahun" class="form-control">
           <?

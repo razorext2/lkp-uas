@@ -1,38 +1,36 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Kontak</h3>
-                </div>
-                <div class="panel-body">
-                    <table id="dtskripsi" class="table table-bordered table-striped table-hover">
-                        <thead>
-                            <label class="col-sm-12 control-label"><center><strong>PENGADILAN NEGERI KISARAN</strong></center></label>
-                            <p align="center">
-                              Jalan Jendral Ahmad Yani No. 33, Sei Renggas, Kisaran, Sendang Sari, Kisaran Barat<br>
-                              Kabupaten Asahan, Sumatera Utara, Kode Pos : 21211
-                            </p>
-                        </thead>
-                        <tbody>
-                          <div class="col-sm-2" align="center">
-
-                          </div>
-                          <div class="col-sm-8" align="center">
-                            <br>
-                            Telp. 12345678<br>
-                            Email : pnkisaran@webmail.com<br>
-                            Fax : 1234567<br>
-                            Website : pnkisaran.go.id<br>
-                            <br>
-                          </div>
-                          <div class="col-sm-2" align="center">
-                          </div>
-                        </tbody>
-                    </table>
+<main class="main-content  mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain mt-8">
+                            <div class="card-header pb-0 text-left bg-transparent mb-3">
+                                <h3 class="font-weight-bolder text-info text-gradient">Kontak Kami</h3>
+                            </div>
+                            <table id="dtskripsi" class="table">
+                                <thead>
+                                    Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat, Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273
+                                </thead>
+                                <tbody>
+                                    <div class="col-sm-8 mt-2">
+                                        Telp. 0813-7556-4643<br>
+                                        Email : pnkisaran@webmail.com<br>
+                                        Fax : 1234567<br>
+                                        Website : pnkisaran.go.id<br>
+                                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
+                            <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('assets/img/curved-images/curved6.jpg')">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
-</div>
+    </section>
+</main>
