@@ -193,24 +193,6 @@
         });
     }, 2500);
 </script>
-<script>
-    $(document).ready(function() {
-        $('.view_data').click(function() {
-            var id = $(this).attr("id");
-            $.ajax({
-                url: 'detail.php',
-                method: 'post',
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $('#documentAjuan').html(data);
-                    $('#modalDetail').modal("show");
-                }
-            });
-        });
-    });
-</script>
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
