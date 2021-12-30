@@ -3,7 +3,7 @@
 
 <head>
   <title>Cetak Data Pembayaran Perbulan</title>
-  <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="../assets/css/soft-ui-dashboard.min.css " rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="print()">
@@ -45,16 +45,17 @@
     <div class='row'>
       <div class="col-sm-12">
         <!--dalam tabel--->
-        <div class="text-center">
-          <h3>Catatan Pembayaran Peserta Didik LKP SRH Training Center </h3>
-          <h4> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h4>
+        <div>
+          <h5 class="py-0 text-center">Catatan Pembayaran Peserta Didik LKP SRH Training Center </h5>
+          <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat </h6>
+          <h5 class="py-0 text-center">Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h5>
           <hr>
-          <h3>DATA Pembayaran BULAN <? echo "$bulanNama $ambilthn"; ?></h3>
-          <table class="table table-bordered table-striped table-hover">
+          <h4 class="py-0 text-center">Data Pembayaran Peserta Bulan : <?= $bulanNama . ' / ' . $ambilthn; ?></h4>
+          <table class="table table-bordered table-striped table-hover text-sm">
             <tbody>
               <thead>
                 <tr>
-                  <th>No.</th>
+                  <th width="200" class="text-center">No.</th>
                   <th>Nama Peserta</th>
                   <th>Jumlah Bayar</th>
                   <th>Sisa</th>
@@ -77,18 +78,18 @@
                 $nomor++; //Penambahan satu untuk nilai var nomor
               ?>
                 <tr>
-                  <td><?= $nomor ?></td>
+                  <td class="text-center"><?= $nomor ?></td>
                   <td><?= $data['nama_peserta'] ?></td>
-                  <td><?= $data['jmlh_bayar'] ?></td>
+                  <td><?= 'Rp. ' . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
                   <td><?php
                       if ($data['sisa'] == 0) {
                         echo "Lunas";
                       } else {
-                        echo $data['sisa'];
+                        echo 'Rp. ' . number_format($data['sisa'], 2, ',', '.');
                       }
 
                       ?></td>
-                  <td><?= $data['tanggal'] ?></td>
+                  <td class="text-center"><?= $data['tanggal'] ?></td>
                 </tr>
                 <!--Tutup Perulangan data-->
               <?php } ?>
@@ -98,10 +99,9 @@
             <tfoot>
               <tr>
                 <td colspan="8" class="text-right">
-                  Kisaran, &nbsp <?= date("d-m-Y") ?>
-                  <br><br><br><br>
-                  <u>Kabag Hukum, S.Hum<strong></u><br>
-                  NIP.102871291416712
+                  Pulau Rakyat <?= date("d-m-Y") ?>
+                  <br><br><br>
+                  <u>SRH Training Center<strong></u><br>
                 </td>
               </tr>
             </tfoot>

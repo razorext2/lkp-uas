@@ -1,9 +1,23 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-12 text-sm">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Laporan Arsip</h3>
+                    <div class="row mb-2">
+                        <div class="col-auto">
+                            <h4> Data Pembayaran Peserta </h4>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#cetak_perbulan">
+                                <span class="fa fa-print"></span> Cetak Perbulan
+                            </button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#cetak_pertahun">
+                                <span class="fa fa-print"></span> Cetak Pertahun
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <table id="dtskripsi" class="table table-bordered table-striped table-hover">
@@ -15,7 +29,7 @@
                                 <th>Sisa</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Aksi</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -32,45 +46,36 @@
                             //Melakukan perulangan u/menampilkan data
                             while ($data = mysqli_fetch_array($query)) {
                                 $nomor++; //Penambahan satu untuk nilai var nomor
-                                ?>
+                            ?>
                                 <tr>
                                     <td><?= $nomor ?></td>
                                     <td><?= $data['nama_peserta'] ?></td>
                                     <td><?= $data['jmlh_bayar'] ?></td>
-                                    <td><?php  
-                                        if($data['sisa'] == 0){
+                                    <td><?php
+                                        if ($data['sisa'] == 0) {
                                             echo "Lunas";
-                                        }
-                                        else{
+                                        } else {
                                             echo $data['sisa'];
                                         }
-                                        
-                                    ?></td>
-                                    <td><?= $data['tanggal']?></td>               
+
+                                        ?></td>
+                                    <td><?= $data['tanggal'] ?></td>
                                     <td>
                                         <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
                                             <span class="fa fa-remove"></span>
                                         </a>
-                                    </td>               
-                                   
+                                    </td>
+
                                 </tr>
                                 <!--Tutup Perulangan data-->
                             <?php } ?>
 
                         </tbody>
-                      <tr>
-                                <td colspan="9">
-                                    <a href="laporan/arsip_semua.php" target="_blank" class="btn btn-info btn-sm">
-                                        <span class="fa fa_print"></span> Cetak Semua Pembayaran</a>
+                        <tr>
+                            <td colspan="9">
 
-                                   <a href="#cetak_perbulan" class="btn btn-info btn-sm">
-                                        <span class="fa fa_print"></span> Cetak Perbulan
-
-                                    </a>
-                                </td>
-
-                            </tr>
-
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -79,55 +84,75 @@
     </div>
 </div>
 
-<div id="cetak_perbulan" class="modalDialog">
-    <div>
-        <a href="#" title="Close" class="close">X</a>
-
-        <form  target="_blank" action="laporan/arsip_perbulan.php" method="post">
-        <h4>Pilih bulan </h4>
-        <select name="bulan" class="form-control">
-          <option value="12"> Desember </option>
-          <option value="11"> November </option>
-          <option value="10"> Oktober </option>
-          <option value="09"> September </option>
-          <option value="08"> Agustus </option>
-          <option value="07"> Juli </option>
-          <option value="06"> Juni </option>
-          <option value="05"> Mei </option>
-          <option value="04"> April </option>
-          <option value="03"> Maret </option>
-          <option value="02"> Februari </option>
-          <option value="01"> Januari </option>
-        </select>
-        <h4>Pilih tahun</h4>
-        <select name="tahun" class="form-control">
-          <?
-            for ($i=substr(date("d-m-Y"),6,4); $i > substr(date("d-m-Y"),6,4)-5; $i--) { ?>
-              <option value="<?=$i?>"> <?=$i?> </option>
-          <?  }
-          ?>
-        </select>
-
-        <button type="submit">OK</button>
-        </form>
+<div class="modal fade" id="cetak_perbulan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Pilih Bulan dan Tahun Laporan </h5>
+                <button type="button" class="btn-close btn-sm bg-danger" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form target="_blank" class="form-horizontal" action="report/arsip_perbulan.php" method="post">
+                    <div class="form-group">
+                        <label for="bulan" class="control-label">Pilih Bulan :</label>
+                        <select name="bulan" class="form-control">
+                            <option value="12"> Desember </option>
+                            <option value="11"> November </option>
+                            <option value="10"> Oktober </option>
+                            <option value="09"> September </option>
+                            <option value="08"> Agustus </option>
+                            <option value="07"> Juli </option>
+                            <option value="06"> Juni </option>
+                            <option value="05"> Mei </option>
+                            <option value="04"> April </option>
+                            <option value="03"> Maret </option>
+                            <option value="02"> Februari </option>
+                            <option value="01"> Januari </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tahun" class="control-label">Pilih Tahun :</label>
+                        <select name="tahun" class="form-control">
+                            <?php
+                            for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
+                                <option value="<?= $i ?>"> <?= $i ?> </option>
+                            <?php  }
+                            ?>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm bg-gradient-primary" type="submit">Proses</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
-<div id="cetak_pertahun" class="modalDialog">
-    <div>
-        <a href="#" title="Close" class="close">X</a>
-
-        <form  target="_blank" action="report/arsip_pertahun.php" method="post">
-        <h4>Pilih tahun</h4>
-        <select name="tahun" class="form-control">
-          <?
-            for ($i=substr(date("d-m-Y"),6,4); $i > substr(date("d-m-Y"),6,4)-5; $i--) { ?>
-              <option value="<?=$i?>"> <?=$i?> </option>
-          <?  }
-          ?>
-        </select>
-
-        <button type="submit">OK</button>
-        </form>
+<div class="modal fade" id="cetak_pertahun" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Pilih Tahun Laporan </h5>
+                <button type="button" class="btn-close btn-sm bg-danger" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form target="_blank" action="report/arsip_pertahun.php" method="post">
+                    <div class="form-group">
+                        <label for="tahun" class="control-label">Pilih Tahun :</label>
+                        <select name="tahun" class="form-control">
+                            <?php
+                            for ($i = substr(date("d-m-Y"), 6, 4); $i > substr(date("d-m-Y"), 6, 4) - 5; $i--) { ?>
+                                <option value="<?= $i ?>"> <?= $i ?> </option>
+                            <?php  }
+                            ?>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm bg-gradient-primary" type="submit">Proses</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

@@ -69,12 +69,10 @@
 
                         <tfoot>
                             <tr>
-                                <td>
-                                    <br>
+                                <td colspan="8" class="text-right">
                                     Pulau Rakyat <?= date("d-m-Y") ?>
                                     <br><br><br>
                                     <u>SRH Training Center<strong></u><br>
-
                                 </td>
                             </tr>
                         </tfoot>
