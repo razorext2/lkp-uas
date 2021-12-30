@@ -16,16 +16,16 @@ if (!isset($_SESSION['idsesi'])) {
 </div>
 
 <div class="table-responsive p-0">
-    <table class="table table-hover table-striped align-items-center mb-0 text-sm" style="width:100%">
+    <table class="table table-hover table-striped align-items-center mb-0 text-sm">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>No.</th>
                 <th>Nama</th>
                 <th>No Hp</th>
                 <th>Alamat</th>
                 <th>Jenis Kelamin</th>
                 <th>Mulai Bekerja</th>
-                <th>ACTIONS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -44,13 +44,13 @@ if (!isset($_SESSION['idsesi'])) {
                 $nomor++; //Penambahan satu untuk nilai var nomor
             ?>
                 <tr>
-                    <td><?= $nomor ?></td>
+                    <td style="text-align: center  !important"><?= $nomor ?></td>
                     <td><?= $data['nama_instruktur'] ?></td>
                     <td><?= $data['no_hp'] ?></td>
                     <td><?= $data['alamat'] ?></td>
-                    <td><?= $data['jenis_klmn'] ?></td>
-                    <td><?= $data['tanggal_kerja'] ?></td>
-                    <td>
+                    <td class="text-center"><?= $data['jenis_klmn'] ?></td>
+                    <td class="text-center"><?= $data['tanggal_kerja'] ?></td>
+                    <td class="text-center">
                         <a href="?page=instruktur&actions=detail&id=<?= $data['id_instruktur'] ?>">
                             <span class="fa fa-eye text-info p-2"></span>
                         </a>

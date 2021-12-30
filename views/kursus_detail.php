@@ -1,9 +1,16 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-6 text-sm">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Informasi Detail Instruktur</h3>
+                    <div class="row mb-2">
+                        <div class="col-auto">
+                            <a href="?page=kursus&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
+                        </div>
+                        <div class="col-auto">
+                            <h4> Detail Kursus </h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <!--Menampilkan data detail arsip-->
@@ -16,42 +23,35 @@
                     ?>
 
                     <!--dalam tabel--->
-                    <table class="table table-bordered table-striped table-hover">
+                    <table class="table table-hover">
                         <tr>
-                            <td width="200">Id Kursus</td>
+                            <td width="200">ID Kursus</td>
+                            <td>:</td>
                             <td><?= $data['id_kursus'] ?></td>
                         </tr>
                         <tr>
-                            <td width="200">Nama Kursus</td>
+                            <td>Nama Kursus</td>
+                            <td>:</td>
                             <td><?= $data['nama_kursus'] ?></td>
                         </tr>
                         <tr>
                             <td>Biaya Kursus</td>
-                            <td><?= $data['biaya'] ?></td>
+                            <td>:</td>
+                            <td><?= 'Rp. ' . number_format($data['biaya'], 2, ',', '.') ?></td>
                         </tr>
                         <tr>
                             <td>Nama Instruktur</td>
+                            <td>:</td>
                             <td><?= $data['id_instruktur'] ?></td>
                         </tr>
                         <tr>
                             <td>Jumlah Pertemuan</td>
+                            <td>:</td>
                             <td><?= $data['jmlh_pertemuan'] ?></td>
                         </tr>
-
-
                     </table>
-
                 </div>
-                <!--end panel-body-->
-                <!--panel footer-->
-                <div class="panel-footer">
-                    <a href="?page=kursus&actions=tampil" class="btn btn-success btn-sm">
-                        Kembali Ke Data Kursus </a>
-
-                </div>
-                <!--end panel footer-->
             </div>
-
         </div>
     </div>
 </div>

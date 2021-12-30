@@ -16,14 +16,14 @@ if (!isset($_SESSION['idsesi'])) {
 </div>
 
 <div class="table-responsive p-0">
-    <table class="table table-hover table-striped align-items-center mb-0 text-sm" style="width:100%">
+    <table class="table table-hover table-striped align-items-center mb-0 text-sm">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th>No.</th>
                 <th>Id Kursus</th>
                 <th>Nama Kursus</th>
                 <th>Biaya Kursus</th>
-                <th>Id Instruktur</th>
+                <th>Instruktur</th>
                 <th>Jumlah Pertemuan</th>
                 <th>Aksi</th>
             </tr>
@@ -44,12 +44,12 @@ if (!isset($_SESSION['idsesi'])) {
                 $nomor++; //Penambahan satu untuk nilai var nomor
             ?>
                 <tr>
-                    <td><?= $nomor ?></td>
-                    <td><?= $data['id_kursus'] ?></td>
+                    <td class="text-center"><?= $nomor ?></td>
+                    <td class="text-center"><?= $data['id_kursus'] ?></td>
                     <td><?= $data['nama_kursus'] ?></td>
-                    <td><?= $data['biaya'] ?></td>
-                    <td><?= $data['id_instruktur'] ?></td>
-                    <td><?= $data['jmlh_pertemuan'] ?></td>
+                    <td class="text-center"><?= 'Rp. ' . number_format($data['biaya'], 2, ',', '.') ?></td>
+                    <td class="text-center"><?= $data['id_instruktur'] ?></td>
+                    <td class="text-center"><?= $data['jmlh_pertemuan'] ?></td>
                     <td>
                         <a href="?page=kursus&actions=detail&id=<?= $data['id_kursus'] ?>">
                             <span class="fa fa-eye text-info p-2"></span>

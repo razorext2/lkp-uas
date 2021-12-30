@@ -25,7 +25,7 @@ if (!isset($_SESSION['idsesi'])) {
                 <th>Alamat</th>
                 <th>Jenis Kursus</th>
                 <th>Status</th>
-                <th>ACTIONS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>

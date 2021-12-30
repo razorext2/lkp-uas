@@ -40,7 +40,7 @@ if (!isset($_SESSION['idsesi'])) {
             ?>
                 <tr>
                     <td class="text-center"><?= $nomor ?></td>
-                    <td class="text-center">
+                    <td>
                         <?php
                         $text = $data['nama_peserta'];
 
@@ -53,7 +53,7 @@ if (!isset($_SESSION['idsesi'])) {
                         }
                         ?>
                     </td>
-                    <td class="text-center"><?= $data['nama_kursus'] ?></td>
+                    <td><?= $data['nama_kursus'] ?></td>
                     <td class="text-center"><?= "Rp. " . number_format($data['biaya_awal'], 2, ',', '.') ?></td>
                     <td class="text-center"><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
                     <td class="text-center"><?php
