@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Cetak Data Semua Arsip</title>
+    <title>Cetak Data Semua Pembayaran</title>
     <link href="../assets/css/soft-ui-dashboard.min.css" rel="stylesheet" type="text/css" />
 </head>
 

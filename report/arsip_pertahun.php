@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Cetak Data Pembayaran Perbulan</title>
+  <title>Cetak Data Pembayaran Pertahun</title>
   <link href="../assets/css/soft-ui-dashboard.min.css " rel="stylesheet" type="text/css" />
 </head>
 

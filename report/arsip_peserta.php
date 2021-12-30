@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Cetak Data Semua Arsip</title>
-    <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <title>Cetak Data Semua Peserta</title>
+    <link href="../assets/css/soft-ui-dashboard.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="print()">
