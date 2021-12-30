@@ -4,7 +4,7 @@ if (isset($_GET['page'])) {
   $p = $_GET['page'];
   if ($p == 'peserta' or $p == 'pendaftaran') {
     $n = "active";
-  } elseif ($p == 'pembayaran') {
+  } elseif ($p == 'pembayaran' || $_GET['actions'] == 'pembayaran') {
     $a = "active";
   } elseif ($p == 'instruktur') {
     $b = "active";
