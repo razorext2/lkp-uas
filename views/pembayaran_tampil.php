@@ -6,7 +6,13 @@ if (!isset($_SESSION['idsesi'])) {
 
 <div class="row mb-2">
     <div class="col-auto">
-        <h4> Data Pembayaran </h4>
+        <h4> Data pembayaran </h4>
+    </div>
+    <div class="col-auto">
+        <a href="report/arsip_semua.php" class="btn bg-gradient-primary p-2"> Print Laporan </a>
+    </div>
+    <div class="col-auto">
+        <a href="report/arsip_perbulan.php" class="btn bg-gradient-primary p-2"> Print Laporan Perbulan </a>
     </div>
 </div>
 
