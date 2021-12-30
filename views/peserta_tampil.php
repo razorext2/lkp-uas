@@ -9,8 +9,8 @@ if (!isset($_SESSION['idsesi'])) {
         <h4> Data Peserta Kursus </h4>
     </div>
     <div class="col-auto">
-        <a href="?page=pendaftaran&actions=tampil" class="btn btn-info btn-sm">
-            Daftar Siswa Baru
+        <a href="?page=pendaftaran&actions=tampil" class="btn btn-info p-2">
+            [+] Siswa Baru
         </a>
     </div>
 </div>
@@ -47,9 +47,29 @@ if (!isset($_SESSION['idsesi'])) {
                     <td class="text-center"><?= $nomor ?></td>
                     <td><?= $data['nama_peserta'] ?></td>
                     <td><?= $data['nomor_hp'] ?></td>
-                    <td><?= $data['alamat'] ?></td>
+                    <td>
+                        <?php
+                        $text = $data['alamat'];
+                        if (str_word_count($text) > 2) {
+                            echo substr($text, 0, 15) . " ...";
+                        } else {
+                            echo $text;
+                        }
+                        ?>
+
+                    </td>
                     <td><?= $data['id_kursus'] ?></td>
-                    <td class="text-center"><?= $data['status'] ?></td>
+                    <td class="text-center">
+                        <?php
+                        $i = $data['status'];
+
+                        if ($data['status'] == "lulus") { ?>
+                            <span class="badge badge-pill bg-gradient-success"> <?= $i ?> </span>
+                        <?php } else { ?>
+                            <span class="badge badge-pill bg-gradient-primary"> <?= $i ?> </span>
+                        <?php } ?>
+
+                    </td>
                     <td class="text-center">
                         <a href="?page=peserta&actions=detail&id=<?= $data['no_id'] ?>">
                             <span class="fa fa-eye p-2 text-info"></span>

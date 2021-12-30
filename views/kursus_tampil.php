@@ -25,7 +25,7 @@ if (!isset($_SESSION['idsesi'])) {
                 <th>Biaya Kursus</th>
                 <th>Id Instruktur</th>
                 <th>Jumlah Pertemuan</th>
-                <th>ACTIONS</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
