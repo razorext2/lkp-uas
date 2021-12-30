@@ -11,16 +11,16 @@ if (!isset($_SESSION['idsesi'])) {
 </div>
 
 <div class="table-responsive p-0">
-    <table class="table table-hover table-striped align-items-center mb-0 text-sm" style="width:100%">
+    <table class="table table-hover table-striped align-items-center mb-0 text-sm">
         <thead>
             <tr>
-                <th>No.</th>
-                <th>Nama Peserta</th>
-                <th>Jenis Kursus</th>
-                <th>Biaya</th>
-                <th>Jumlah Bayar</th>
-                <th>Sisa Pembayaran</th>
-                <th>ACTIONS</th>
+                <th class="text-center">No.</th>
+                <th class="text-center">Nama Peserta</th>
+                <th class="text-center">Jenis Kursus</th>
+                <th class="text-center">Biaya</th>
+                <th class="text-center">Jumlah Bayar</th>
+                <th class="text-center">Sisa Pembayaran</th>
+                <th class="text-center">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -39,19 +39,31 @@ if (!isset($_SESSION['idsesi'])) {
                 $nomor++; //Penambahan satu untuk nilai var nomor
             ?>
                 <tr>
-                    <td><?= $nomor ?></td>
-                    <td><?= $data['nama_peserta'] ?></td>
-                    <td><?= $data['nama_kursus'] ?></td>
-                    <td><?= $data['biaya_awal'] ?></td>
-                    <td><?= $data['jmlh_bayar'] ?></td>
-                    <td><?php
-                        if ($data['status'] == 0) {
-                            echo "Lunas";
+                    <td class="text-center"><?= $nomor ?></td>
+                    <td class="text-center">
+                        <?php
+                        $text = $data['nama_peserta'];
+
+                        if (
+                            str_word_count($text) > 1
+                        ) {
+                            echo substr($text, 0, 12) . "***";
                         } else {
-                            echo $data['status'];
+                            echo $text;
                         }
-                        ?></td>
-                    <td>
+                        ?>
+                    </td>
+                    <td class="text-center"><?= $data['nama_kursus'] ?></td>
+                    <td class="text-center"><?= "Rp. " . number_format($data['biaya_awal'], 2, ',', '.') ?></td>
+                    <td class="text-center"><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
+                    <td class="text-center"><?php
+                                            if ($data['status'] == 0) {
+                                                echo "Lunas";
+                                            } else {
+                                                echo "Rp. " . number_format($data['status'], 2, ',', '.');
+                                            }
+                                            ?></td>
+                    <td class="text-center">
                         <a href="?page=pembayaran&actions=detail&id=<?= $data['id_bayar'] ?>">
                             <span class="fa fa-eye text-info p-2"></span>
                         </a>
@@ -66,12 +78,5 @@ if (!isset($_SESSION['idsesi'])) {
                 <!--Tutup Perulangan data-->
             <?php } ?>
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="7">
-                    <span>Data Pembayaran</span>
-                </td>
-            </tr>
-        </tfoot>
     </table>
 </div>

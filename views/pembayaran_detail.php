@@ -1,52 +1,57 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-6 text-sm">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Informasi Detail Pembayaran</h3>
+                    <div class="row mb-2">
+                        <div class="col-auto">
+                            <a href="?page=pembayaran&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
+                        </div>
+                        <div class="col-auto">
+                            <h4> Informasi Detail Pembayaran </h4>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <!--Menampilkan data detail arsip-->
                     <?php
-                    $sql = "SELECT *FROM bayar WHERE id_bayar ='" . $_GET ['id'] . "'";
+                    $sql = "SELECT *FROM bayar WHERE id_bayar ='" . $_GET['id'] . "'";
                     //proses query ke database
                     $query = mysqli_query($koneksi, $sql) or die("SQL Detail error");
                     //Merubaha data hasil query kedalam bentuk array
                     $data = mysqli_fetch_array($query);
-                    ?>   
+                    ?>
 
                     <!--dalam tabel--->
-                    <table class="table table-bordered table-striped table-hover"> 
+                    <table class="table table-hover">
                         <tr>
-                            <td width="200">Nama Peserta : </td> <td><?= $data['nama_peserta'] ?></td>
-                        </tr>
-                        <tr>
-                            <td width="200">Jenis Kursus :</td> <td><?= $data['nama_kursus'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Biaya Kursus (Rp) :</td> <td><?= $data['biaya_awal'] ?></td>
+                            <td width="200">Nama Peserta </td>
+                            <td> : </td>
+                            <td><?= $data['nama_peserta'] ?></td>
                         </tr>
                         <tr>
-                            <td>Jumlah Bayar (Rp) :</td> <td><?= $data['jmlh_bayar'] ?></td>
+                            <td width="200">Jenis Kursus</td>
+                            <td> : </td>
+                            <td><?= $data['nama_kursus'] ?></td>
                         </tr>
-						<tr>
-                            <td>Sisa (Rp) :</td> <td><?= $data['status'] ?></td>
+                        <tr>
+                            <td>Biaya Kursus (Rp)</td>
+                            <td> : </td>
+                            <td><?= "Rp. " . number_format($data['biaya_awal'], 2, ',', '.') ?></td>
                         </tr>
-                        
-                        
+                        <tr>
+                            <td>Jumlah Bayar (Rp)</td>
+                            <td> : </td>
+                            <td><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
+                        </tr>
+                        <tr>
+                            <td>Sisa (Rp)</td>
+                            <td> : </td>
+                            <td><?= "Rp. " . number_format($data['status'], 2, ',', '.') ?></td>
+                        </tr>
                     </table>
-				
-                </div> <!--end panel-body-->
-                <!--panel footer--> 
-                <div class="panel-footer">
-                    <a href="?page=pembayaran&actions=tampil" class="btn btn-success btn-sm">
-                         Kembali Ke Data Pembayaran </a>
-
                 </div>
-                <!--end panel footer-->
             </div>
-
         </div>
     </div>
 </div>
-
