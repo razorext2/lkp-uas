@@ -22,7 +22,7 @@ $data = mysqli_fetch_array($ambil);
                     <form class="form-horizontal" action="" method="post">
                         <div class="form-group">
                             <label for="nama" class="control-label">Nama Peserta :</label>
-                            <input type="text" name="nama" value="<?= $data['nama_peserta'] ?>" class="form-control" id="inputEmail3" placeholder="Nama Peserta">
+                            <input type="text" name="nama" value="<?= $data['nama_peserta'] ?>" class="form-control" placeholder="Nama Peserta">
                         </div>
                         <div class="form-group">
                             <label for="jenis_kelamin" class="control-label">Jenis Kelamin :</label>
@@ -54,11 +54,11 @@ $data = mysqli_fetch_array($ambil);
                         </div>
                         <div class="form-group">
                             <label for="nohp" class="control-label">Nomor Hp :</label>
-                            <input type="text" name="nohp" value="<?= $data['nomor_hp'] ?>" class="form-control" id="inputEmail3" placeholder="Nomor Peserta">
+                            <input type="text" name="nohp" value="<?= $data['nomor_hp'] ?>" class="form-control" placeholder="Nomor Peserta">
                         </div>
                         <div class="form-group">
                             <label for="alamat" class="control-label">Alamat :</label>
-                            <textarea class="form-control" placeholder="Alamat Peserta" name="alamat" id="exampleFormControlTextarea1" rows="3"><?= $data['alamat'] ?></textarea>
+                            <textarea class="form-control" placeholder="Alamat Peserta" name="alamat" rows="3"><?= $data['alamat'] ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="status" class="control-label">Status :</label>
