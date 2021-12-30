@@ -21,7 +21,7 @@
                     <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat</h6>
                     <h5 class="py-0 text-center"> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h5>
                     <hr>
-                    <h4 class="py-0 text-center">Data Pembayaran Peserta : </h4>
+                    <h4 class="py-0 text-center">Data Pembayaran Peserta : <?= $_GET['nama']; ?> </h4>
                     <table class="table table-hover text-sm">
 
                         <thead>
