@@ -193,6 +193,20 @@
         });
     }, 2500);
 </script>
+<!-- autofill function -->
+<script>
+    function isi_otomatis() {
+        var nama_kursus = $("#nama_kursus").val();
+        $.ajax({
+            url: 'ajax.php',
+            data: "nama_kursus=" + nama_kursus,
+        }).success(function(data) {
+            var json = data,
+                obj = JSON.parse(json);
+            $('#biaya_kurs').val(obj.biaya);
+        });
+    }
+</script>
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

@@ -1,6 +1,6 @@
 <div class="row mb-2">
     <div class="col-auto">
-        <a href="?page=peserta&actions=tampil" class="btn btn-primary p-2"> Kembali </a>
+        <a href="?page=peserta&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
     </div>
     <div class="col-auto">
         <h4> Pendaftaran Siswa </h4>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="jnis_klmn" class="col-sm-3 control-label">Jenis Kursus:</label>
-                <select name="nama_kursus" class="form-control">
+                <select id="nama_kursus" name="nama_kursus" class="form-control" onchange="isi_otomatis()">
                     <option>-- Pilih Paket Kursus --</option>
                     <?php $query = mysqli_query($koneksi, "SELECT * FROM kursus GROUP BY nama_kursus ORDER BY nama_kursus");
                     while ($data = mysqli_fetch_array($query)) { ?>
@@ -43,13 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="biaya_kurs" class="col-sm-3 control-label">Biaya Kursus:</label>
-                <select name="biaya_kurs" class="form-control">
-                    <option>-- Pilih Biaya Kursus --</option>
-                    <?php $query = mysqli_query($koneksi, "SELECT * FROM kursus GROUP BY biaya ORDER BY biaya");
-                    while ($data = mysqli_fetch_array($query)) { ?>
-                        <option value="<?= $data['biaya']; ?>"><?php echo $data['biaya']; ?></option>
-                    <?php } ?>
-                </select>
+                <input type="text" name="biaya_kurs" id="biaya_kurs" class="form-control" placeholder="Pilih Kursus Terlebih Dahulu" readonly>
             </div>
             <div class="form-group">
                 <label for="nomor_hp" class="col-sm-3 control-label">Nomor Hp:</label>
@@ -76,18 +70,11 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" class="btn bg-gradient-primary">
                         <span class="fa fa-save"></span> Simpan Data Peserta</button>
                 </div>
             </div>
         </form>
-
-
-    </div>
-    <div class="panel-footer">
-        <a href="?page=beranda&actions=adm" class="btn btn-danger btn-sm">
-            Kembali Ke Beranda
-        </a>
     </div>
 
     <?php

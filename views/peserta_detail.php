@@ -5,7 +5,7 @@
                 <div class="panel-heading">
                     <div class="row mb-2">
                         <div class="col-auto">
-                            <a href="?page=peserta&actions=tampil" class="btn btn-primary p-2"> Kembali </a>
+                            <a href="?page=peserta&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
                         </div>
                         <div class="col-auto">
                             <h4> Data Peserta Kursus </h4>
