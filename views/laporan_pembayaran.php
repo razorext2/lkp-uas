@@ -5,31 +5,33 @@
                 <div class="panel-heading">
                     <div class="row mb-2">
                         <div class="col-auto">
+                            <a href="?page=pembayaran&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
+                        </div>
+                        <div class="col-auto">
                             <h4> Data Pembayaran Peserta </h4>
                         </div>
                         <div class="col-auto">
-                            <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#cetak_perbulan">
+                            <button type="button" class="btn bg-gradient-primary p-2" data-bs-toggle="modal" data-bs-target="#cetak_perbulan">
                                 <span class="fa fa-print"></span> Cetak Perbulan
                             </button>
                         </div>
                         <div class="col-auto">
-                            <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#cetak_pertahun">
+                            <button type="button" class="btn bg-gradient-primary p-2" data-bs-toggle="modal" data-bs-target="#cetak_pertahun">
                                 <span class="fa fa-print"></span> Cetak Pertahun
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <table id="dtskripsi" class="table table-bordered table-striped table-hover">
+                    <table class="table table-hover table-striped align-items-center mb-0">
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>No.</th>
                                 <th>Nama Peserta</th>
                                 <th>Jumlah Bayar</th>
                                 <th>Sisa</th>
                                 <th>Tanggal Pembayaran</th>
                                 <th>Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -48,18 +50,20 @@
                                 $nomor++; //Penambahan satu untuk nilai var nomor
                             ?>
                                 <tr>
-                                    <td><?= $nomor ?></td>
+                                    <td class="text-center"><?= $nomor ?></td>
                                     <td><?= $data['nama_peserta'] ?></td>
-                                    <td><?= $data['jmlh_bayar'] ?></td>
-                                    <td><?php
+                                    <td class="text-center"><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
+                                    <td>
+                                        <?php
                                         if ($data['sisa'] == 0) {
                                             echo "Lunas";
                                         } else {
-                                            echo $data['sisa'];
+                                            echo "Rp. " . number_format($data['sisa'], 2, ',', '.');
                                         }
 
-                                        ?></td>
-                                    <td><?= $data['tanggal'] ?></td>
+                                        ?>
+                                    </td>
+                                    <td class="text-center"><?= $data['tanggal'] ?></td>
                                     <td>
                                         <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
                                             <span class="fa fa-remove"></span>

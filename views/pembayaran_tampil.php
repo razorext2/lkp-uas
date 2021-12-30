@@ -9,10 +9,10 @@ if (!isset($_SESSION['idsesi'])) {
         <h4> Data pembayaran </h4>
     </div>
     <div class="col-auto">
-        <a href="report/arsip_semua.php" class="btn bg-gradient-primary p-2"> Print Laporan </a>
+        <a href="report/arsip_semua.php" class="btn bg-gradient-primary p-2" target="_blank"> Print Laporan </a>
     </div>
     <div class="col-auto">
-        <a href="?page=laporan&actions=pembayaran" class="btn bg-gradient-primary p-2"> Print Laporan Perbulan </a>
+        <a href="?page=laporan&actions=pembayaran" class="btn bg-gradient-primary p-2"> Print Laporan Perwaktu </a>
     </div>
 </div>
 
@@ -68,7 +68,8 @@ if (!isset($_SESSION['idsesi'])) {
                                             } else {
                                                 echo "Rp. " . number_format($data['status'], 2, ',', '.');
                                             }
-                                            ?></td>
+                                            ?>
+                    </td>
                     <td class="text-center">
                         <a href="?page=pembayaran&actions=detail&id=<?= $data['id_bayar'] ?>">
                             <span class="fa fa-eye text-info p-2"></span>
