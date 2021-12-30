@@ -5,8 +5,8 @@ Sistem Informasi Manajemen Data LKP SRH menggunakan native php. <br>
 Fitur :
 
 - Master Data (Pendaftara, Siswa, Instruktur, Pembayaran, Kursus)
-- Laporan
-- Cetak Laporan
+- Laporan (coming soon)
+- Cetak Laporan Pembayaran
 
 Penampakan Sistem :
 
