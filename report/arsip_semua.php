@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Cetak Data Semua Arsip</title>
-        <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    </head>  
-    <body onload="print()">
-        <!--Menampilkan data detail arsip-->
-        <?php
-        include '../config/koneksi.php';
-        ?>   
 
-        <div class="container">
-            <div class='row'>
-                <div class="col-sm-12">
-                    <!--dalam tabel--->
-                    <div class="text-center">
-                        <h3>Catatan Pembayaran Peserta Didik LKP SRH Training Center </h3>
-                        <h4> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br>  Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h4>
-                        <hr>
-                        <h3>Data Seluruh Pembayaran Peserta</h3>
-                        <table class="table table-bordered table-striped table-hover"> 
-                      
-                            <thead>
-								<tr>
-								    <th>No.</th>
-                                    <th>Nama Peserta</th>
-                                    <th>Jumlah Bayar</th>
-                                    <th>Sisa</th>
-                                    <th>Tanggal Pembayaran</th>
-								</tr>
-							</thead>
-							<tbody>
+<head>
+    <title>Cetak Data Semua Arsip</title>
+    <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="print()">
+    <!--Menampilkan data detail arsip-->
+    <?php
+    include '../config/koneksi.php';
+    ?>
+
+    <div class="container">
+        <div class='row'>
+            <div class="col-sm-12">
+                <!--dalam tabel--->
+                <div class="text-center">
+                    <h3>Catatan Pembayaran Peserta Didik LKP SRH Training Center </h3>
+                    <h4> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h4>
+                    <hr>
+                    <h3>Data Seluruh Pembayaran Peserta</h3>
+                    <table class="table table-bordered table-striped table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Peserta</th>
+                                <th>Jumlah Bayar</th>
+                                <th>Sisa</th>
+                                <th>Tanggal Pembayaran</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                             <!--ambil data dari database, dan tampilkan kedalam tabel-->
                             <?php
                             //buat sql untuk tampilan data, gunakan kata kunci select
@@ -44,39 +46,39 @@
                             //Melakukan perulangan u/menampilkan data
                             while ($data = mysqli_fetch_array($query)) {
                                 $nomor++; //Penambahan satu untuk nilai var nomor
-                                ?>
+                            ?>
                                 <tr>
                                     <td><?= $nomor ?></td>
                                     <td><?= $data['nama_peserta'] ?></td>
                                     <td><?= $data['jmlh_bayar'] ?></td>
-                                    <td><?php  
-                                        if($data['sisa'] == 0){
+                                    <td><?php
+                                        if ($data['sisa'] == 0) {
                                             echo "Lunas";
-                                        }
-                                        else{
+                                        } else {
                                             echo $data['sisa'];
                                         }
-                                        
-                                    ?></td>
-                                    <td><?= $data['tanggal']?></td> 
+
+                                        ?></td>
+                                    <td><?= $data['tanggal'] ?></td>
                                 </tr>
                                 <!--Tutup Perulangan data-->
                             <?php } ?>
-							</tbody>
-               
-                            <tfoot> 
-                                <tr>
-                                    <td colspan="8" class="text-right">
-                                        Pulau Rakyat  <?= date("d-m-Y") ?>
-                                        <br><br><br><br>
-                                        <u>SRH Training Center<strong></u><br>
-                                        
-									</td>
-								</tr>
-							</tfoot> 
-                        </table>
-                    </div>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="8" class="text-right">
+                                    Pulau Rakyat <?= date("d-m-Y") ?>
+                                    <br><br><br><br>
+                                    <u>SRH Training Center<strong></u><br>
+
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
-    </body>
+        </div>
+</body>
+
 </html>

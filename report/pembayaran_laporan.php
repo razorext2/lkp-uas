@@ -3,7 +3,7 @@
 
 <head>
     <title>Cetak Data Semua Arsip</title>
-    <link href="../Assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/soft-ui-dashboard.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onload="print()">
@@ -16,29 +16,29 @@
         <div class='row'>
             <div class="col-sm-12">
                 <!--dalam tabel--->
-                <div class="text-center">
-                    <h3>Data Lulusan LKP SRH Training Center </h3>
-                    <h4> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h4>
+                <div>
+                    <h6 class="py-0 text-center">Catatan Pembayaran Peserta Didik LKP SRH Training Center </h6>
+                    <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h6>
                     <hr>
-                    <h3>Data Seluruh Pembayaran Peserta</h3>
-                    <table class="table table-bordered table-striped table-hover">
+                    <h4 class="py-0 text-center">Data Pembayaran Peserta : </h4>
+                    <table class="table table-hover text-sm">
 
                         <thead>
                             <tr>
-                                <th>No.</th>
+                                <th width="200" class="text-center">No.</th>
                                 <th>Nama Peserta</th>
-                                <th>Jenis Kursus</th>
-                                <th>Tanggal Pendaftaran</th>
-                                <th>Alamat</th>
-                                <th>Status</th>
+                                <th>Jumlah Bayar</th>
+                                <th>Sisa</th>
+                                <th>Tanggal Pembayaran</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!--ambil data dari database, dan tampilkan kedalam tabel-->
                             <?php
                             //buat sql untuk tampilan data, gunakan kata kunci select
-                            $sql = "SELECT nama_peserta,id_kursus,tanggal_pendaftaran,alamat,status FROM peserta WHERE status = 'Lulus'";
-                            $query = mysqli_query($koneksi, $sql) or die("SQL Anda Salah");
+                            $nama   = str_replace('%20', ' ', $_GET['nama']);
+                            $sql    = "SELECT * FROM catatan_pembayaran WHERE nama_peserta = '$nama'";
+                            $query  = mysqli_query($koneksi, $sql) or die("SQL Anda Salah");
                             //Baca hasil query dari databse, gunakan perulangan untuk 
                             //Menampilkan data lebh dari satu. disini akan digunakan
                             //while dan fungdi mysqli_fecth_array
@@ -49,12 +49,18 @@
                                 $nomor++; //Penambahan satu untuk nilai var nomor
                             ?>
                                 <tr>
-                                    <td><?= $nomor ?></td>
+                                    <td class="text-center"><?= $nomor ?></td>
                                     <td><?= $data['nama_peserta'] ?></td>
-                                    <td><?= $data['id_kursus'] ?></td>
-                                    <td><?= $data['tanggal_pendaftaran'] ?></td>
-                                    <td><?= $data['alamat'] ?></td>
-                                    <td><?= $data['status'] ?></td>
+                                    <td><?= 'Rp. ' . number_format($data['jmlh_bayar'], 2, ',', '.') ?></td>
+                                    <td class="text-center"><?php
+                                                            if ($data['sisa'] == 0) {
+                                                                echo "Lunas";
+                                                            } else {
+                                                                echo 'Rp. ' . number_format($data['sisa'], 2, ',', '.');
+                                                            }
+
+                                                            ?></td>
+                                    <td class="text-center"><?= $data['tanggal'] ?></td>
                                 </tr>
                                 <!--Tutup Perulangan data-->
                             <?php } ?>
@@ -62,9 +68,10 @@
 
                         <tfoot>
                             <tr>
-                                <td colspan="8" class="text-right">
+                                <td>
+                                    <br>
                                     Pulau Rakyat <?= date("d-m-Y") ?>
-                                    <br><br><br><br>
+                                    <br><br><br>
                                     <u>SRH Training Center<strong></u><br>
 
                                 </td>
