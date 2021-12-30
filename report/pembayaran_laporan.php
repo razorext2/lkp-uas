@@ -17,8 +17,9 @@
             <div class="col-sm-12">
                 <!--dalam tabel--->
                 <div>
-                    <h6 class="py-0 text-center">Catatan Pembayaran Peserta Didik LKP SRH Training Center </h6>
-                    <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h6>
+                    <h5 class="py-0 text-center">Catatan Pembayaran Peserta Didik LKP SRH Training Center </h5>
+                    <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat</h6>
+                    <h5 class="py-0 text-center"> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h5>
                     <hr>
                     <h4 class="py-0 text-center">Data Pembayaran Peserta : </h4>
                     <table class="table table-hover text-sm">
