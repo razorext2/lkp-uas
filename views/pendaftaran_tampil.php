@@ -1,16 +1,18 @@
 <div class="row mb-2">
     <div class="col-auto">
-        <h4> Form Pendaftaran </h4>
+        <a href="?page=peserta&actions=tampil" class="btn btn-primary p-2"> Kembali </a>
+    </div>
+    <div class="col-auto">
+        <h4> Pendaftaran Siswa </h4>
     </div>
 </div>
-
 <div class="row">
     <div class="col-6">
         <!--membuat form untuk tambah data-->
         <form class="form-horizontal" action="" method="post">
             <div class="form-group">
                 <label for="nama_peserta" class="col-sm-3 control-label">Nama Peserta:</label>
-                <input type="text" name="nama_peserta" class="form-control" id="id_instruktur" placeholder="Inputkan Nama Peserta" required>
+                <input type="text" name="nama_peserta" class="form-control" id="id_instruktur" placeholder="Nama Peserta" required>
             </div>
             <div class="form-group">
                 <label for="status" class="col-sm-3 control-label">Jenis Kelamin :</label>
@@ -51,15 +53,15 @@
             </div>
             <div class="form-group">
                 <label for="nomor_hp" class="col-sm-3 control-label">Nomor Hp:</label>
-                <input type="text" name="nomor_hp" class="form-control" id="nomor_hp" placeholder="Inputkan Nomor Hp" required>
+                <input type="text" name="nomor_hp" class="form-control" id="nomor_hp" placeholder="Nomor Hp" required>
             </div>
             <div class="form-group">
                 <label for="alamat" class="col-sm-3 control-label">Alamat :</label>
-                <input type="text" name="alamat" class="form-control" id="inputEmail3" placeholder="Inputkan Alamat" required>
+                <textarea class="form-control" placeholder="Alamat Peserta" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="jmlh_bayar" class="col-sm-3 control-label">Jumlah Bayar :</label>
-                <input type="text" name="jmlh_bayar" class="form-control" id="inputEmail3" placeholder="Inputkan Alamat" required>
+                <input type="number" name="jmlh_bayar" class="form-control" id="inputEmail3" placeholder="Jumlah Bayar" required>
             </div>
             <div class="form-group">
                 <label for="status_belajar" class="col-sm-3 control-label">Status Belajar :</label>
