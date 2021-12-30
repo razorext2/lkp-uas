@@ -9,7 +9,7 @@ $row = mysqli_fetch_array($query);
 $data = array(
     'id'           => $row['id_kursus'],
     'nama'          =>  $row['nama_kursus'],
-    'biaya'    => $row['biaya']
+    'biaya'    => "Rp. " . number_format($row['biaya'], 0, '', '.')
 );
 //tampil data
 echo json_encode($data);

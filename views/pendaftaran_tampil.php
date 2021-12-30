@@ -6,13 +6,14 @@
         <h4> Pendaftaran Siswa </h4>
     </div>
 </div>
+
 <div class="row">
     <div class="col-6">
         <!--membuat form untuk tambah data-->
         <form class="form-horizontal" action="" method="post">
             <div class="form-group">
                 <label for="nama_peserta" class="col-sm-3 control-label">Nama Peserta:</label>
-                <input type="text" name="nama_peserta" class="form-control" id="id_instruktur" placeholder="Nama Peserta" required>
+                <input type="text" name="nama_peserta" class="form-control" placeholder="Nama Peserta" required>
             </div>
             <div class="form-group">
                 <label for="status" class="col-sm-3 control-label">Jenis Kelamin :</label>
@@ -47,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="nomor_hp" class="col-sm-3 control-label">Nomor Hp:</label>
-                <input type="text" name="nomor_hp" class="form-control" id="nomor_hp" placeholder="Nomor Hp" required>
+                <input type="text" name="nomor_hp" class="form-control" placeholder="Nomor Hp" required>
             </div>
             <div class="form-group">
                 <label for="alamat" class="col-sm-3 control-label">Alamat :</label>
@@ -55,7 +56,7 @@
             </div>
             <div class="form-group">
                 <label for="jmlh_bayar" class="col-sm-3 control-label">Jumlah Bayar :</label>
-                <input type="number" name="jmlh_bayar" class="form-control" id="inputEmail3" placeholder="Jumlah Bayar" required>
+                <input type="text" name="jmlh_bayar" id="jmlh_bayar" class="form-control" placeholder="Jumlah Bayar" required>
             </div>
             <div class="form-group">
                 <label for="status_belajar" class="col-sm-3 control-label">Status Belajar :</label>
@@ -66,7 +67,6 @@
                     <option value="Berhenti">Berhenti</option>
                 </select>
             </div>
-
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
@@ -85,8 +85,8 @@
         $pendidikan = $_POST['pendidikan'];
         $tanggal = date('Y-m-d');
         $nama_kurs = $_POST['nama_kursus'];
-        $biaya = $_POST['biaya_kurs'];
-        $jmlh = $_POST['jmlh_bayar'];
+        $biaya = str_replace(array('.', 'Rp '), array('', ''), $_POST['biaya_kurs']);
+        $jmlh = str_replace(array('.', 'Rp '), array('', ''),  $_POST['jmlh_bayar']);
         $sisa = $biaya - $jmlh;
         $no_hp = $_POST['nomor_hp'];
         $alamat = $_POST['alamat'];
