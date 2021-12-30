@@ -13,6 +13,9 @@ if (!isset($_SESSION['idsesi'])) {
             [+] Siswa Baru
         </a>
     </div>
+    <div class="col-auto">
+        <a href="report/arsip_peserta.php" class="btn bg-gradient-primary p-2" target="_blank"> Print Laporan </a>
+    </div>
 </div>
 
 <div class="table-responsive p-0">

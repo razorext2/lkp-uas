@@ -16,15 +16,16 @@
         <div class='row'>
             <div class="col-sm-12">
                 <!--dalam tabel--->
-                <div class="text-center">
-                    <h3>Data Lulusan LKP SRH Training Center </h3>
-                    <h4> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat <br> Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h4>
+                <div>
+                    <h5 class="py-0 text-center">Data Lulusan LKP SRH Training Center </h5>
+                    <h6 class="py-0 text-center"> Pulau Rakyat Pekan Ds. 2, Pulau Rakyat Tua, Pulau Rakyat </h6>
+                    <h5 class="py-0 text-center">Kabupaten Asahan, Sumatera Utara, Kode Pos : 21273</h5>
                     <hr>
-                    <h3>Data Seluruh Pembayaran Peserta</h3>
-                    <table class="table table-bordered table-striped table-hover">
+                    <h4 class="py-0 text-center">Data Peserta Lulus</h4>
+                    <table class="table table-bordered table-striped table-hover text-sm">
 
                         <thead>
-                            <tr>
+                            <tr class="text-center">
                                 <th>No.</th>
                                 <th>Nama Peserta</th>
                                 <th>Jenis Kursus</th>
@@ -64,9 +65,8 @@
                             <tr>
                                 <td colspan="8" class="text-right">
                                     Pulau Rakyat <?= date("d-m-Y") ?>
-                                    <br><br><br><br>
+                                    <br><br><br>
                                     <u>SRH Training Center<strong></u><br>
-
                                 </td>
                             </tr>
                         </tfoot>
