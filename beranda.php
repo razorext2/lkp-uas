@@ -11,6 +11,17 @@
                                     <p class="mb-0">Please choose this button below to continue.</p>
                                 </div>
                                 <div class="card-body">
+                                    <?php
+                                    if ($_SESSION['level'] == 1) { ?>
+                                        <div class="text-center">
+                                            <a href="index_admin.php" class="btn bg-gradient-info w-100 mt-4 mb-0">Dashboard</a>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="text-center">
+                                            <a href="index_pemilik.php" class="btn bg-gradient-info w-100 mt-4 mb-0">Dashboard</a>
+                                        </div>
+                                    <?php }
+                                    ?>
                                     <div class="text-center">
                                         <a href="logout.php" class="btn bg-gradient-danger w-100 mt-4 mb-0">Logout</a>
                                     </div>

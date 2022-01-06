@@ -14,17 +14,17 @@ if ($jumlahdata > 0) {
     $data =  mysqli_fetch_assoc($query); //ambil data dan konversi menjadi array
     session_start(); //aktifkan session wajib
 
-    if($data['level']=="1"){
-    $_SESSION['username'] = $user;
-    $_SESSION['idsesi'] = session_id();
-    $_SESSION['level'] = $data['level'];
-    $_SESSION['nama'] = $data['nama'];
-    $_SESSION['ket'] = $data['ket'];
-    $_SESSION['email'] = $data['email'];
-    //pindahkan ke halaman index
-    header("location:index_admin.php", true);
-    }else{
-         $_SESSION['username'] = $user;
+    if ($data['level'] == "1") {
+        $_SESSION['username'] = $user;
+        $_SESSION['idsesi'] = session_id();
+        $_SESSION['level'] = $data['level'];
+        $_SESSION['nama'] = $data['nama'];
+        $_SESSION['ket'] = $data['ket'];
+        $_SESSION['email'] = $data['email'];
+        //pindahkan ke halaman index
+        header("location:index_admin.php", true);
+    } else {
+        $_SESSION['username'] = $user;
         $_SESSION['idsesi'] = session_id();
         $_SESSION['level'] = $data['level'];
         $_SESSION['nama'] = $data['nama'];
