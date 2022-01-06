@@ -11,7 +11,7 @@ require 'config/koneksi.php'; ?>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
-    <?php include 'split/aside_pemilik.php'; ?>
+    <?php include 'split/aside.php'; ?>
     <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
         <!-- Navbar -->
         <?php include 'split/navbar.php'; ?>
