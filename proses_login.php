@@ -31,7 +31,7 @@ if ($jumlahdata > 0) {
         $_SESSION['ket'] = $data['ket'];
         $_SESSION['email'] = $data['email'];
         //pindahkan ke halaman index
-        header("location:index_pemilik.php", true);
+        header("location:index_admin.php", true);
     }
 } else {
     header("location:index.php?pesan=salah", true);
