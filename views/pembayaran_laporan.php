@@ -5,7 +5,7 @@
                 <div class="panel-heading">
                     <div class="row mb-2">
                         <div class="col-auto">
-                            <a href="?page=pembayaran&actions=tampil" class="btn bg-gradient-primary p-2"> Kembali </a>
+                            <a href="?page=tampil&actions=pembayaran" class="btn bg-gradient-primary p-2"> Kembali </a>
                         </div>
                         <div class="col-auto">
                             <h4> Data Pembayaran Peserta </h4>
@@ -31,7 +31,7 @@
                                 <th>Jumlah Bayar</th>
                                 <th>Sisa</th>
                                 <th>Tanggal Pembayaran</th>
-                                <th>Aksi</th>
+                              
                             </tr>
                         </thead>
                         <tbody>
@@ -64,11 +64,7 @@
                                         ?>
                                     </td>
                                     <td class="text-center"><?= $data['tanggal'] ?></td>
-                                    <td>
-                                        <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
-                                            <span class="fa fa-remove"></span>
-                                        </a>
-                                    </td>
+                                    
 
                                 </tr>
                                 <!--Tutup Perulangan data-->

@@ -12,7 +12,6 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <a href="index_admin.php" class="btn bg-gradient-info w-100 mt-4 mb-0">Dashboard</a>
                                         <a href="logout.php" class="btn bg-gradient-danger w-100 mt-4 mb-0">Logout</a>
                                     </div>
                                 </div>

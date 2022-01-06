@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Des 2021 pada 18.56
+-- Waktu pembuatan: 06 Jan 2022 pada 02.49
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 5.6.40
 
@@ -42,7 +42,8 @@ CREATE TABLE `bayar` (
 --
 
 INSERT INTO `bayar` (`id_bayar`, `nama_peserta`, `nama_kursus`, `biaya_awal`, `jmlh_bayar`, `status`) VALUES
-(16, 'Alan wahyuda nasution', 'Microsoft Office', '300000', '90000', '210000');
+(29, 'Alan Wahyuda Nasution', 'Microsoft Office', '300000', '300000', '0'),
+(32, 'Yulendra Tanjung', 'Prakerin', '450000', '200000', '250000');
 
 -- --------------------------------------------------------
 
@@ -63,8 +64,10 @@ CREATE TABLE `catatan_pembayaran` (
 --
 
 INSERT INTO `catatan_pembayaran` (`id_bayar`, `nama_peserta`, `jmlh_bayar`, `sisa`, `tanggal`) VALUES
-(1, 'udin', '12346y7', '437654', '2021-12-23'),
-(2, 'udin', '123123', '176877', '2021-12-29');
+(15, 'Alan Wahyuda Nasution', '150000', '150000', '2021-12-30'),
+(16, 'Alan Wahyuda Nasution', '150000', '0', '2021-12-30'),
+(26, 'Yulendra Tanjung', '50000', '350000', '2021-12-30'),
+(27, 'Yulendra Tanjung', '100000', '250000', '2021-12-30');
 
 -- --------------------------------------------------------
 
@@ -134,7 +137,8 @@ CREATE TABLE `peserta` (
 --
 
 INSERT INTO `peserta` (`no_id`, `nama_peserta`, `jenis_kelamin`, `pendidikan`, `tanggal_pendaftaran`, `id_kursus`, `nomor_hp`, `alamat`, `status`) VALUES
-(18, 'Alan wahyuda nasution', 'Laki-Laki', 'S1', '2021-12-13', 'Microsoft Office', '082167232047', 'Perkebunan Gunung Melayu', 'Lulus');
+(31, 'Alan Wahyuda Nasution', 'Laki-Laki', 'umum', '2021-12-30', 'Microsoft Office', '081267123881', 'Perkebungan Gunung Melayu', 'Lulus'),
+(34, 'Yulendra Tanjung', 'Laki-Laki', 'S1', '2021-12-30', 'Prakerin', '081277231222', 'Sei Alim Hasak', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -156,7 +160,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `paswd`, `email`, `nama`, `level`, `ket`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'devk@gmail.com', 'Developer SRH', 1, 'Admin SRH');
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'devk@gmail.com', 'Developer SRH', 1, 'Admin SRH'),
+('pemilik', '58399557dae3c60e23c78606771dfa3d', 'pemilik@pemilik.com', 'pemilik', 2, 'Pemilik SRH');
 
 --
 -- Indexes for dumped tables
@@ -206,19 +211,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `bayar`
 --
 ALTER TABLE `bayar`
-  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `catatan_pembayaran`
 --
 ALTER TABLE `catatan_pembayaran`
-  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `no_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
