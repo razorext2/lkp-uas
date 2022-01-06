@@ -50,6 +50,14 @@
                                         <div class="mb-3">
                                             <input type="text" name="user" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="email-addon">
                                         </div>
+                                        <label>Level User :</label>
+                                        <div class="mb-3">
+                                            <select name="level" class="form-control">
+                                                <option value="0"> -- Pilih Level User -- </option>
+                                                <option value="1"> Administrator </option>
+                                                <option value="2"> Pemilik </option>
+                                            </select>
+                                        </div>
                                         <label>Password</label>
                                         <div class="mb-3">
                                             <input type="password" name="pwd" class="form-control" placeholder="Password" aria-label="Password" id="password" aria-describedby="password-addon">

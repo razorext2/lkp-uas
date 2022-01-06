@@ -1,13 +1,14 @@
 <?php
 //ambil data dari form login
-$btn = $_POST['login'];
-$user = $_POST['user'];
-$pwd = $_POST['pwd'];
+$btn    = $_POST['login'];
+$user   = $_POST['user'];
+$pwd    = $_POST['pwd'];
+$lvl    = $_POST['level'];
 $pwd_enkripsi = md5($pwd);
 
 //Baca data ke database dengan label user
 include 'config/koneksi.php';
-$sql = "SELECT * FROM user WHERE username='$user' AND paswd='$pwd_enkripsi'";
+$sql = "SELECT * FROM user WHERE username='$user' AND paswd='$pwd_enkripsi' AND level='$lvl'";
 $query =  mysqli_query($koneksi, $sql) or die("SQL Login Error");
 $jumlahdata =  mysqli_num_rows($query);
 if ($jumlahdata > 0) {
