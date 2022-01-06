@@ -53,7 +53,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-auto">
-                        <a href="report/pembayaran_laporan.php?nama=<?= $data['nama_peserta']; ?>" class="btn bg-gradient-primary p-2"> Print Bukti Pembayaran </a>
+                        <a target="_blank" href="report/pembayaran_laporan.php?nama=<?= $data['nama_peserta']; ?>" class="btn bg-gradient-primary p-2"> Print Bukti Pembayaran </a>
                     </div>
                 </div>
             </div>

@@ -31,7 +31,9 @@
                                 <th>Jumlah Bayar</th>
                                 <th>Sisa</th>
                                 <th>Tanggal Pembayaran</th>
-                                <th>Aksi</th>
+                                <?php if ($_SESSION['level'] == 1) : ?>
+                                    <th>Aksi</th>
+                                <?php endif ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +54,7 @@
                                 <tr>
                                     <td class="text-center"><?= $nomor ?></td>
                                     <td><?= $data['nama_peserta'] ?></td>
-                                    <td class="text-center"><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',','.');?></td>
+                                    <td class="text-center"><?= "Rp. " . number_format($data['jmlh_bayar'], 2, ',', '.'); ?></td>
                                     <td>
                                         <?php
                                         if ($data['sisa'] == 0) {
@@ -64,11 +66,13 @@
                                         ?>
                                     </td>
                                     <td class="text-center"><?= $data['tanggal'] ?></td>
-                                    <td>
-                                        <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
-                                            <span class="fa fa-remove"></span>
-                                        </a>
-                                    </td>
+                                    <?php if ($_SESSION['level'] == 1) : ?>
+                                        <td>
+                                            <a href="?page=laporan&actions=delete&id=<?= $data['id_bayar'] ?>" class="btn btn-danger btn-xs">
+                                                <span class="fa fa-remove"></span>
+                                            </a>
+                                        </td>
+                                    <?php endif ?>
 
                                 </tr>
                                 <!--Tutup Perulangan data-->

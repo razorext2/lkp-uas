@@ -8,11 +8,14 @@ if (!isset($_SESSION['idsesi'])) {
     <div class="col-auto">
         <h4> Data Peserta Kursus </h4>
     </div>
-    <div class="col-auto">
-        <a href="?page=pendaftaran&actions=tampil" class="btn btn-info p-2">
-            [+] Siswa Baru
-        </a>
-    </div>
+    <?php
+    if ($_SESSION['level'] == 1) : ?>
+        <div class="col-auto">
+            <a href="?page=pendaftaran&actions=tampil" class="btn btn-info p-2">
+                [+] Siswa Baru
+            </a>
+        </div>
+    <?php endif ?>
     <div class="col-auto">
         <a href="report/arsip_peserta.php" class="btn bg-gradient-primary p-2" target="_blank"> Print Laporan </a>
     </div>
@@ -77,12 +80,14 @@ if (!isset($_SESSION['idsesi'])) {
                         <a href="?page=peserta&actions=detail&id=<?= $data['no_id'] ?>">
                             <span class="fa fa-eye p-2 text-info"></span>
                         </a>
-                        <a href="?page=peserta&actions=edit&id=<?= $data['no_id'] ?>">
-                            <span class="fa fa-edit p-2 text-primary"></span>
-                        </a>
-                        <a href="?page=peserta&actions=delete&id=<?= $data['no_id'] ?>">
-                            <span class="fa fa-remove p-2 text-danger"></span>
-                        </a>
+                        <?php if ($_SESSION['level'] == 1) : ?>
+                            <a href="?page=peserta&actions=edit&id=<?= $data['no_id'] ?>">
+                                <span class="fa fa-edit p-2 text-primary"></span>
+                            </a>
+                            <a href="?page=peserta&actions=delete&id=<?= $data['no_id'] ?>">
+                                <span class="fa fa-remove p-2 text-danger"></span>
+                            </a>
+                        <?php endif ?>
                     </td>
                 </tr>
                 <!--Tutup Perulangan data-->

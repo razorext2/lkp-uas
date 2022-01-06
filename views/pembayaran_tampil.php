@@ -74,12 +74,14 @@ if (!isset($_SESSION['idsesi'])) {
                         <a href="?page=pembayaran&actions=detail&id=<?= $data['id_bayar'] ?>">
                             <span class="fa fa-eye text-info p-2"></span>
                         </a>
-                        <a href="?page=pembayaran&actions=edit&id=<?= $data['id_bayar'] ?>">
-                            <span class="fa fa-edit text-primary p-2"></span>
-                        </a>
-                        <a href="?page=pembayaran&actions=delete&id=<?= $data['id_bayar'] ?>">
-                            <span class="fa fa-remove text-danger p-2"></span>
-                        </a>
+                        <?php if ($_SESSION['level'] == 1) : ?>
+                            <a href="?page=pembayaran&actions=edit&id=<?= $data['id_bayar'] ?>">
+                                <span class="fa fa-edit text-primary p-2"></span>
+                            </a>
+                            <a href="?page=pembayaran&actions=delete&id=<?= $data['id_bayar'] ?>">
+                                <span class="fa fa-remove text-danger p-2"></span>
+                            </a>
+                        <?php endif ?>
                     </td>
                 </tr>
                 <!--Tutup Perulangan data-->
