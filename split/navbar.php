@@ -33,7 +33,7 @@
             <!-- edit profil -->
             <span class="nav-link text-body font-weight-bold px-0">
               <i class="fa fa-user me-sm-1"></i>
-              <span class="d-sm-inline d-none"><?= $_SESSION['nama']; ?></span>
+              <span class="d-sm-inline d-none"><?= $_SESSION['ket']; ?></span>
             </span>
           </a>
         </li>
